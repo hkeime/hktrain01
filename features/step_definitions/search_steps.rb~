@@ -1,0 +1,13 @@
+Given(/^I am on the google site/) do
+  visit 'http://www.google.com'
+end
+
+When(/^I enter hello in search input field/) do
+  fill_in('gbqfq', :with => 'hello')
+And (/^I click google search/) do
+  click_button('gbqfsa')
+end
+
+Then(/^I should see message "About $n results"/) do
+  page.has_xpath?(//div[@id='resultStats']"About 797,000,000 results")
+end
